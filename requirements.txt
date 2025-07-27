@@ -1,1 +1,1 @@
-python-kucoin
+requests
