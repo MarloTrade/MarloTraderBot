@@ -1,18 +1,23 @@
-import kucoin.client
 import os
+import requests
+import time
 
 API_KEY = os.getenv("KUCOIN_API_KEY")
 API_SECRET = os.getenv("KUCOIN_API_SECRET")
-PASSPHRASE = os.getenv("KUCOIN_API_PASSPHRASE")
+API_PASSPHRASE = os.getenv("KUCOIN_API_PASSPHRASE")
+TRADE_AMOUNT = 50  # montant en USDT
 
-client = kucoin.client.Client(API_KEY, API_SECRET, PASSPHRASE)
-
-def buy(pair, amount):
-    try:
-        order = client.create_market_order(pair, side='buy', funds=amount)
-        print("Trade OK :", order)
-    except Exception as e:
-        print("Erreur :", e)
+def trade():
+    print("Démarrage du bot...")
+    # Ici tu ajoutes la logique de trading intelligente
+    # Ex. : Acheter DOGE si certaines conditions sont réunies
+    print(f"Trade simulé de {TRADE_AMOUNT} USDT sur DOGE")
 
 if __name__ == "__main__":
-    buy("DOGE-USDT", "50")
+    while True:
+        try:
+            trade()
+            time.sleep(300)  # attend 5 minutes
+        except Exception as e:
+            print("Erreur:", e)
+            time.sleep(60)
