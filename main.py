@@ -17,7 +17,7 @@ TAKE_PROFIT = 1.10  # +10%
 STOP_LOSS = 0.97    # -3%
 
 def get_best_pair():
-    tickers = client.get_ticker()
+    tickers = client.get_tickers()
     usdt_pairs = [x for x in tickers['ticker'] if x['symbol'].endswith('-USDT') and float(x['changeRate']) > 0]
     sorted_pairs = sorted(usdt_pairs, key=lambda x: float(x['changeRate']), reverse=True)
     return sorted_pairs[0]['symbol'] if sorted_pairs else None
