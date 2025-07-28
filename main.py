@@ -11,7 +11,7 @@ api_passphrase = os.getenv("KUCOIN_API_PASSPHRASE")
 client = Client(api_key, api_secret, api_passphrase)
 
 def get_best_pair():
-    tickers = client.get_ticker()
+    tickers = client.get_tickers()
     best_pair = None
     max_change = -9999
 
